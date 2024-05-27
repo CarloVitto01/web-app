@@ -36,8 +36,8 @@ const filteredSegnalazioneBy = async (cognomeInput: string | null, dataInput: Da
             {
                 params:
                 {
-                    cognome: cognomeInput ?? '',
-                    data: dataInput ? dataInput.toString() : ''
+                    cognome: cognomeInput ? cognomeInput : null,
+                    data: dataInput ? dataInput: null
                 }
             }
         );
