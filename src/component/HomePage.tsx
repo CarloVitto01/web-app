@@ -17,9 +17,13 @@ const HomePage = () => {
     setSegnalazioniList(filtered.data);
   };
 
+  const onDelete = (id : number) => {
+    setSegnalazioniList(prevList=> prevList.filter(segnalazione => segnalazione.id_segnalazione !== id))
+  }
+
   useEffect(() => {
     const getAllSegnalazioni = async () => {
-      const filtered = await SegnalazioniService.filteredSegnalazioneBy("", null);
+      const filtered = await SegnalazioniService.filteredSegnalazioneBy(null, null);
       setSegnalazioniList(filtered.data);
     };
     getAllSegnalazioni();
@@ -67,7 +71,7 @@ const HomePage = () => {
               <Card.Text>Assunzione: {segnalazione.tecnico.data_assunzione.toString()}</Card.Text>
             </Card.Body>
             <Card.Body className="d-flex justify-content-center">
-              <CheckDelete deleteId={segnalazione.id_segnalazione!}/>
+              <CheckDelete deleteId={segnalazione.id_segnalazione!} onDelete={onDelete} />
             </Card.Body>
           </Card>
         ))}

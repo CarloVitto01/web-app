@@ -4,10 +4,11 @@ import SegnalazioneModel from '../models/SegnalazioneModel';
 import SegnalazioniService from '../services/SegnalazioneService';
 
 const CreateSegnalazione = () => {
-    const { register, handleSubmit: handleSubmitForm } = useForm<SegnalazioneModel>()
+    const { register, handleSubmit: handleSubmitForm, reset } = useForm<SegnalazioneModel>()
 
     const handleSubmit: SubmitHandler<SegnalazioneModel> = async (data) => {
         await SegnalazioniService.createSegnalazioni(data);
+        reset()
     };
 
     return (
