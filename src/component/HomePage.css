@@ -1,0 +1,7 @@
+.containerCardSegnalazioni {
+    margin: 10px; /* Aumentato il margine */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
